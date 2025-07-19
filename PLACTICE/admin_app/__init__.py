@@ -8,7 +8,7 @@ from jinja2 import ChoiceLoader, FileSystemLoader
 import os
 
 def admin_app():
-    app = Flask(__name__, static_folder='static')
+    app = Flask(__name__, static_folder=os.path.join(os.getcwd(), 'static')
     app.config['SECRET_KEY'] = os.urandom(24)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
