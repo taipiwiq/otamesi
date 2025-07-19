@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>{{ genre.name }}の問題一覧</h1><a href="{{ url_for('admin.genre_list') }}"><div>ジャンル一覧に戻る</div></a>
+    <a href="{{ url_for('admin.home') }}">ホームへ</a>
+    <a href="/unit_create">
+        <button type="button">単元の追加</button>
+    </a>
+    <a href="{{ url_for('admin.unit_edit', genre_id=genre.id) }}">
+        <button type="button">編集</button>
+    </a>
+
+    <ul>
+        {% for unit in units %}
+            <li>
+                <a href="{{ url_for('admin.unit_home', unit_id=unit.id, genre_id=genre.id) }}">{{ unit.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
