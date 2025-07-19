@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
-from flask_bootstrap import Bootstrap
+# from flask_bootstrap import Bootstrap
 from shared.models.users import Post, User, AnswerRecord, Genre, Unit
 from shared.db import db
 from shared.auth import roles_required
