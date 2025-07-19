@@ -5,7 +5,7 @@ from shared.models.users import Post, User, AnswerRecord, Genre, Unit
 from shared.db import db
 from shared.auth import roles_required
 
-admin_bp = Blueprint('admin', __name__, static_folder='static')
+admin_bp = Blueprint('admin', __name__,')
 # bootstrap = Bootstrap(admin_bp)
 
 
