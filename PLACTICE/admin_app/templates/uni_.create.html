@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    
-    <form method="POST">
-        <h1>科目名を入力</h1>
-        <label for="genre">単元名</label>
-        <input type="text" name="name" >
-        <input type="submit" value="追加">
-    </form>
+
+<div class="container py-5" style="max-width: 480px;">
+  <h2 class="text-center mb-4" style="color: #C35B78;">📚 単元名を入力</h2>
+
+  <form method="POST" class="shadow-sm p-4 bg-white rounded">
+    <div class="mb-3">
+      <label for="genre" class="form-label fw-semibold">単元名</label>
+      <input type="text" class="form-control rounded-pill" id="genre" name="name" placeholder="例：関数" required>
+    </div>
+
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary rounded-pill py-2 shadow-sm">➕ 追加</button>
+    </div>
+  </form>
+</div>
 
 {% endblock %}
