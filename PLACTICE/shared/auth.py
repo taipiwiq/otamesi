@@ -29,7 +29,7 @@ def signup():
         return redirect('/')
     return render_template('signup.html')
 
-@auth_bp.route('/', methods=['GET','POST'])
+@auth_bp.route('/bootstrap/', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
         username = request.form.get('username')
