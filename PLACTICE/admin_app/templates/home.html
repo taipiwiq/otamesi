@@ -1,17 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<h2 class="mb-4">問題ジャンルを選択</h2>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  {% for genre in genres %}
-  <div class="col">
-    <a href="{{ url_for('quiz.unit_list', genre_id=genre.id) }}" class="text-decoration-none">
-      <div class="card p-3 h-100 text-center">
-        <h3 class="mb-2">{{ genre.name }}</h3>
-        <p class="text-muted">{{ genre.description or '楽しく学べるよ！' }}</p>
-        <i class="fa-solid fa-book-open fa-2x text-pink" style="color:#C35B78;"></i>
-      </div>
-    </a>
+
+<div class="container py-5">
+  <h2 class="text-center mb-4">管理メニュー ✨</h2>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-3">
+      <a href="/users" class="text-decoration-none">
+        <div class="card text-center p-4 shadow-sm border-0 h-100 hover-shadow" style="background-color: #FFE8EC; border-radius: 1rem;">
+          <i class="fas fa-users fa-2x mb-2" style="color: #C35B78;"></i>
+          <h5 class="fw-bold mb-0">ユーザー一覧</h5>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 mb-3">
+      <a href="/genre" class="text-decoration-none">
+        <div class="card text-center p-4 shadow-sm border-0 h-100" style="background-color: #E8F5FF; border-radius: 1rem;">
+          <i class="fas fa-book fa-2x mb-2" style="color: #4A90E2;"></i>
+          <h5 class="fw-bold mb-0">問題一覧</h5>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 mb-3">
+      <a href="/really" role="button" class="text-decoration-none">
+        <div class="card text-center p-4 shadow-sm border-0 h-100" style="background-color: #FFF3C9; border-radius: 1rem;">
+          <i class="fas fa-sign-out-alt fa-2x mb-2" style="color: #FFA500;"></i>
+          <h5 class="fw-bold mb-0">ログアウト</h5>
+        </div>
+      </a>
+    </div>
   </div>
-  {% endfor %}
 </div>
+
 {% endblock %}
