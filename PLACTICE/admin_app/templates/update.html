@@ -1,29 +1,86 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1>編集画面</h1>
-    <ul>
-        <h1>問題文を入力</h1>
-    </ul>
+<div class="container py-4" style="max-width: 700px;">
+  <h1 class="mb-4 text-primary">編集画面</h1>
 
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
-    
-    <form method="POST">
-        <ul>
-            <input type="text" name="question" value="{{ post.question }}" value="{{ request.form.get('question', post.question) }}">
-            <h1>解答の選択肢を選択</h1>
-        <li>選択肢１</li><input type="text" name="select1" value="{{ post.select1 }}" value="{{ request.form.get('select1', post.select1) }}">
-        <li>選択肢２</li><input type="text" name="select2" value="{{ post.select2 }}" value="{{ request.form.get('select2', post.select2) }}">
-        <li>選択肢３</li><input type="text" name="select3" value="{{ post.select3 }}" value="{{ request.form.get('select3', post.select3) }}">
-        <li>選択肢４</li><input type="text" name="select4" value="{{ post.select4 }}" value="{{ request.form.get('select4', post.select4) }}">
-        </ul>
-        <ul>
-            <h1>正答を入力</h1>
-            <input type='text' name="answer" value="{{ request.form.get('answer', post.answer) }}">
-            <input type="submit" value="更新">
-        </ul>
-    </form>
+  {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+  {% endif %}
+
+  <form method="POST" class="mb-3">
+    <div class="mb-4">
+      <label for="question" class="form-label h5">問題文を入力</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="question" 
+        name="question" 
+        value="{{ request.form.get('question', post.question) }}" 
+        required>
+    </div>
+
+    <fieldset class="mb-4">
+      <legend class="h5 mb-3">解答の選択肢を入力</legend>
+      
+      <div class="mb-3">
+        <label for="select1" class="form-label">選択肢1</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="select1" 
+          name="select1" 
+          value="{{ request.form.get('select1', post.select1) }}" 
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="select2" class="form-label">選択肢2</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="select2" 
+          name="select2" 
+          value="{{ request.form.get('select2', post.select2) }}" 
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="select3" class="form-label">選択肢3</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="select3" 
+          name="select3" 
+          value="{{ request.form.get('select3', post.select3) }}" 
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label for="select4" class="form-label">選択肢4</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="select4" 
+          name="select4" 
+          value="{{ request.form.get('select4', post.select4) }}" 
+          required>
+      </div>
+    </fieldset>
+
+    <div class="mb-4">
+      <label for="answer" class="form-label h5">正答を入力</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="answer" 
+        name="answer" 
+        value="{{ request.form.get('answer', post.answer) }}" 
+        required>
+    </div>
+
+    <button type="submit" class="btn btn-primary rounded-pill px-4">更新</button>
+  </form>
+</div>
 
 {% endblock %}
