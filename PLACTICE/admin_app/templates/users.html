@@ -1,37 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>ユーザー一覧</h1>
-<a href="home"><button>ホームへ</button></a>
-<table border="1">
-  <tr>
-    <th>ID</th>
-    <th>ユーザー名</th>
-    <th>現在の権限</th>
-    <th>変更</th>
-    <th>操作</th>
-  </tr>
-  {% for user in users %}
-  <tr>
-    <td>{{ user.id }}</td>
-    <td>{{ user.username }}</td>
-    <td>{{ user.role }}</td>
-    <td>
-      <form action="{{ url_for('admin.update_role', user_id=user.id) }}" method="POST">
-        <select name="role">
-          <option value="player" {% if user.role == 'player' %}selected{% endif %}>player</option>
-          <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>admin</option>
-        </select>
-        <button type="submit">変更</button>
-      </form>
-    </td>
-    <td>
-      <form action="{{ url_for('admin.delete_user', user_id=user.id) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
-        <button type="submit">削除</button>
-      </form>
-    </td>
-  </tr>
-  {% endfor %}
-</table>
+<div class="container py-5">
+  <h2 class="text-center mb-4" style="color: #C35B78;">ユーザー一覧 💁‍♀️</h2>
+
+  <div class="mb-3 text-center">
+    <a href="{{ url_for('admin.home') }}" class="btn btn-outline-primary rounded-pill px-4 shadow-sm">ホームへ</a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle shadow-sm rounded bg-white">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>ユーザー名</th>
+          <th>現在の権限</th>
+          <th>変更</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.role }}</td>
+          <td>
+            <form action="{{ url_for('admin.update_role', user_id=user.id) }}" method="POST" class="d-flex gap-2">
+              <select name="role" class="form-select form-select-sm rounded-pill">
+                <option value="player" {% if user.role == 'player' %}selected{% endif %}>player</option>
+                <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>admin</option>
+              </select>
+              <button type="submit" class="btn btn-sm btn-success rounded-pill">変更</button>
+            </form>
+          </td>
+          <td>
+            <form action="{{ url_for('admin.delete_user', user_id=user.id) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+              <button type="submit" class="btn btn-sm btn-danger rounded-pill">削除</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
 
 {% endblock %}
