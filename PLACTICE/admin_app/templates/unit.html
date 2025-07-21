@@ -1,20 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1>{{ genre.name }}の問題一覧</h1><a href="{{ url_for('admin.genre_list') }}"><div>ジャンル一覧に戻る</div></a>
-    <a href="{{ url_for('admin.home') }}">ホームへ</a>
-    <a href="/unit_create">
-        <button type="button">単元の追加</button>
-    </a>
-    <a href="{{ url_for('admin.unit_edit', genre_id=genre.id) }}">
-        <button type="button">編集</button>
-    </a>
+<div class="container py-4" style="max-width: 800px;">
+  <h1 class="mb-4" style="color: #D36CA8;">{{ genre.name }}の問題一覧</h1>
 
-    <ul>
-        {% for unit in units %}
-            <li>
-                <a href="{{ url_for('admin.unit_home', unit_id=unit.id, genre_id=genre.id) }}">{{ unit.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+  <div class="mb-3 d-flex flex-wrap gap-2">
+    <a href="{{ url_for('admin.genre_list') }}" class="btn btn-outline-primary rounded-pill px-3">ジャンル一覧に戻る</a>
+    <a href="{{ url_for('admin.home') }}" class="btn btn-outline-secondary rounded-pill px-3">ホームへ</a>
+    <a href="/unit_create" class="btn btn-success rounded-pill px-3">単元の追加</a>
+    <a href="{{ url_for('admin.unit_edit', genre_id=genre.id) }}" class="btn btn-warning rounded-pill px-3 text-white">編集</a>
+  </div>
+
+  <ul class="list-group">
+    {% for unit in units %}
+      <li class="list-group-item list-group-item-action rounded-pill mb-2">
+        <a href="{{ url_for('admin.unit_home', unit_id=unit.id, genre_id=genre.id) }}" class="text-decoration-none" style="color:#6f42c1;">
+          {{ unit.name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
 {% endblock %}
