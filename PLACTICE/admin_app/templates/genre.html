@@ -1,22 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>科目一覧</h1>
+<div class="container py-5">
+  <h2 class="text-center mb-4" style="color: #C35B78;">📚 科目一覧</h2>
 
-<a href="/genre_create">
-  <button type="button">科目の追加</button>
-</a>
+  <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+    <a href="{{ url_for('admin.create_genre') }}" class="btn btn-outline-primary rounded-pill px-4 shadow-sm">
+      ＋ 科目の追加
+    </a>
+    <a href="{{ url_for('admin.edit_genre') }}" class="btn btn-outline-secondary rounded-pill px-4 shadow-sm">
+      ✏️ 編集
+    </a>
+    <a href="{{ url_for('admin.home') }}" class="btn btn-outline-info rounded-pill px-4 shadow-sm">
+      ホームへ
+    </a>
+  </div>
 
-<a href="/genre/edit">
-  <button type="button">編集</button>
-</a>
+  <div class="list-group shadow-sm">
+    {% for genre in genres %}
+      <a href="{{ url_for('admin.unit_list', genre_id=genre.id) }}"
+         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        {{ genre.name }}
+        <span class="badge bg-light text-muted">▶</span>
+      </a>
+    {% endfor %}
+  </div>
+</div>
 
-<ul>
-  {% for genre in genres %}
-    <li>
-      <a href="/unit/{{ genre.id }}">{{ genre.name }}</a>
-    </li>
-  {% endfor %}
-</ul>
-<a href="home"><button>ホームへ</button></a>
 {% endblock %}
