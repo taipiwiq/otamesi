@@ -1,10 +1,17 @@
 {% extends "base.html" %}
-{% block title %}home{% endblock %}
 {% block content %}
-
-    <a href="/users">ユーザー一覧</a>
-    <a href="/genre">問題一覧</a>
-    <a href="/really" role="button">ログアウト</a>
-
-
+<h2 class="mb-4">問題ジャンルを選択</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for genre in genres %}
+  <div class="col">
+    <a href="{{ url_for('quiz.unit_list', genre_id=genre.id) }}" class="text-decoration-none">
+      <div class="card p-3 h-100 text-center">
+        <h3 class="mb-2">{{ genre.name }}</h3>
+        <p class="text-muted">{{ genre.description or '楽しく学べるよ！' }}</p>
+        <i class="fa-solid fa-book-open fa-2x text-pink" style="color:#C35B78;"></i>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
