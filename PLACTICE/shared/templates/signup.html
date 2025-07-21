@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-
-<h1>ユーザー登録</h1>
-
-{% if unique_error %}
-    <p>そのユーザー名はすでに登録されています</p>
-{% endif %}
-
-<form method="POST">
-    <label>ユーザー名</label>
-    <input type="text" name="username">
-    <label>パスワード</label>
-    <input type="password" name="password">
-    <input type="submit" value="作成">
-</form>
-
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-4">
+    <div class="card p-4">
+      <h2 class="text-center mb-3">新規登録</h2>
+      <form method="post">
+        <div class="mb-3">
+          <label class="form-label"><i class="fa-solid fa-user me-2"></i>ユーザー名</label>
+          <input type="text" name="username" class="form-control rounded-pill" placeholder="好きな名前を入力" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label"><i class="fa-solid fa-lock me-2"></i>パスワード</label>
+          <input type="password" name="password" class="form-control rounded-pill" placeholder="好きなパスワードを入力" required>
+        </div>
+        <button type="submit" class="btn btn-pink w-100 rounded-pill fw-bold">登録</button>
+      </form>
+      <p class="text-center mt-3 mb-0">すでにアカウントをお持ちの方は<a href="{{ url_for('auth.login') }}">ログイン</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
