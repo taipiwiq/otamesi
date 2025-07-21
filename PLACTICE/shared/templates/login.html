@@ -3,19 +3,19 @@
 <div class="row justify-content-center">
   <div class="col-md-6 col-lg-4">
     <div class="card p-4">
-      <h2 class="text-center mb-3">ログイン</h2>
+      <h2 class="text-center mb-3">ログイン画面</h2>
       <form method="post">
         <div class="mb-3">
-          <label class="form-label">ユーザー名</label>
-          <input type="user-name" name="username" class="form-control rounded-pill" placeholder="ユーザー名を入力" required>
+          <label class="form-label"><i class="fa-solid fa-envelope me-2"></i>ユーザー名</label>
+          <input type="username" name="username" class="form-control rounded-pill" placeholder="ユーザー名を入力" required>
         </div>
         <div class="mb-3">
-          <label class="form-label">パスワード</label>
-          <input type="password" name="password" class="form-control rounded-pill" placeholder="パスワードを入力" required>
+          <label class="form-label"><i class="fa-solid fa-lock me-2"></i>パスワード</label>
+          <input type="password" name="password" class="form-control rounded-pill" required>
         </div>
         <button type="submit" class="btn btn-pink w-100 rounded-pill fw-bold">ログイン</button>
       </form>
-      <p class="text-center mt-2">アカウント未登録の方は<a href="{{ url_for('auth.signup') }}">こちら</a></p>
+      <p class="text-center mt-3 mb-0">アカウント未登録の方は<a href="/signup">こちら</a></p>
     </div>
   </div>
 </div>
