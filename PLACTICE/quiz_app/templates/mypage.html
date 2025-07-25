@@ -3,11 +3,11 @@
 
 <div class="container py-4" style="max-width: 900px;">
   <h2 class="mb-3 text-primary">
-    {{ current_user.username }} さんの解答履歴 📘
+    {{ current_user.username }} さんの解答履歴
   </h2>
 
   <div class="mb-4 fs-5">
-    <span class="me-2">📝 正解数: </span>
+    <span class="me-2">正解数: </span>
     <strong class="text-success">{{ correct }}</strong> / {{ total }}
   </div>
 
@@ -46,7 +46,7 @@
 
   <div class="mt-4">
     <a href="{{ url_for('quiz.home') }}" class="btn btn-outline-secondary rounded-pill px-4">
-      ホームへ戻る 🏠
+      ホームへ戻る
     </a>
   </div>
 </div>
