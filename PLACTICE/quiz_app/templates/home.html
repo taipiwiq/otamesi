@@ -1,17 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>ようこそ{{ user.username }}さん</h2>
-<a href="/really" role="button">ログアウト</a>
-<h1>科目を選択</h1>
+<div class="container py-4" style="max-width: 700px;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary">ようこそ、{{ user.username }} さん</h2>
+    <a href="/really" class="btn btn-outline-danger rounded-pill">ログアウト</a>
+  </div>
 
-{% for genre in genres %}
-<form action="{{ url_for('quiz.unit', genre_id=genre.id) }}" method="get">
-    <button type="submit"><h2>{{ genre.name }}</h2></button>
-</form>
-<br>
-{% endfor %}
+  <h4 class="mb-3">学習したい科目を選んでね ✨</h4>
 
-<a href="{{ url_for('quiz.history') }}">過去の履歴</a>
+  <div class="d-grid gap-3">
+    {% for genre in genres %}
+    <form action="{{ url_for('quiz.unit', genre_id=genre.id) }}" method="get">
+      <button type="submit" class="btn btn-light border rounded-pill shadow-sm py-3 fs-5 w-100 text-start">
+        <i class="bi bi-bookmark-heart-fill me-2 text-danger"></i> {{ genre.name }}
+      </button>
+    </form>
+    {% endfor %}
+  </div>
+
+  <div class="mt-5 text-center">
+    <a href="{{ url_for('quiz.history') }}" class="btn btn-outline-secondary rounded-pill px-4">
+      🔍 過去の履歴をみる
+    </a>
+  </div>
+</div>
 
 {% endblock %}
