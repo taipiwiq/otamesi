@@ -2,14 +2,14 @@
 {% block content %}
 
 <div class="container py-5">
-  <h2 class="text-center mb-4" style="color: #C35B78;">📚 科目一覧</h2>
+  <h2 class="text-center mb-4" style="color: #C35B78;">科目一覧</h2>
 
   <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
     <a href="{{ url_for('admin.genre_create') }}" class="btn btn-outline-primary rounded-pill px-4 shadow-sm">
       ＋ 科目の追加
     </a>
     <a href="{{ url_for('admin.genre_edit') }}" class="btn btn-outline-secondary rounded-pill px-4 shadow-sm">
-      ✏️ 編集
+      編集
     </a>
     <a href="{{ url_for('admin.home') }}" class="btn btn-outline-info rounded-pill px-4 shadow-sm">
       ホームへ
