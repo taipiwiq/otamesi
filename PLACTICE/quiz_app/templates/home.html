@@ -12,7 +12,7 @@
   <div class="d-grid gap-3">
     {% for genre in genres %}
     <form action="{{ url_for('quiz.unit', genre_id=genre.id) }}" method="get">
-      <button type="submit" class="btn btn-light border rounded-pill shadow-sm py-3 fs-5 w-100 text-start">
+      <button type="submit" class="btn-cute-purple">
         <i class="bi bi-bookmark-heart-fill me-2 text-danger"></i> {{ genre.name }}
       </button>
     </form>
