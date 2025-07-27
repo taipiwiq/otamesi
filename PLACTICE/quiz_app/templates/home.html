@@ -8,13 +8,12 @@
 
   <h4 class="mb-3">学習したい科目を選んでください</h4>
 
-  <div class="d-grid gap-3 justify-content-center">
+  <div class="genre-list-scroll d-grid gap-3 justify-content-center">
     {% for genre in genres %}
       <a href="{{ url_for('quiz.unit', genre_id=genre.id) }}"
         class="btn btn-outline-pink shadow-sm fs-5 rounded-pill py-2 genre-btn">
-        <i class="bi bi-bookmark-heart-fill me-2 text-danger"></i> {{ genre.name }}
-      </button>
-    </form>
+        {{ genre.name }}
+      </a>
     {% endfor %}
   </div>
 
