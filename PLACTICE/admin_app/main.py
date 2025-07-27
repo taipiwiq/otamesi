@@ -156,7 +156,7 @@ def unit_create():
             
             db.session.add(new_unit)
             db.session.commit()
-            return redirect('/unit')
+            return redirect('/unit', genre_id=genre_id)
     return render_template('unit_create.html')
 
 #単元編集画面
